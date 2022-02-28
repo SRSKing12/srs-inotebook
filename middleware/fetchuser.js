@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = 'Thi$i$@$@mp|eKey'
 
-const fetchUser = (req, res, next) => {
+const fetchuser = (req, res, next) => {
     // Get user from JWT & add ID to object
     const token = req.header('auth-token')
     if(!token){
@@ -17,4 +17,4 @@ const fetchUser = (req, res, next) => {
     }
 }
 
-module.exports = fetchUser
+module.exports = fetchuser

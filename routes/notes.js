@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const fetchUser = require('../middleware/fetchuser')
+const fetchuser = require('../middleware/fetchuser')
 const Notes = require('../models/Notes')
 const {body, validationResult} = require('express-validator')
 
@@ -16,7 +16,7 @@ router.get('/fetchallnotes', fetchUser, async (req, res)=>{
 })
 
 // ROUTE 2: Adding notes using: POST "/api/notes/addnotes". Requires auth
-router.post('/addnotes', fetchUser, [
+router.post('/addnotes', fetchuser, [
     body('title', 'Title is too short!').isLength({min: 3}),
     body('description', 'Description is too short!').isLength({min: 5}),
 ], async (req, res)=>{
@@ -43,7 +43,7 @@ router.post('/addnotes', fetchUser, [
 })
 
 // ROUTE 3: Updating notes using: PUT "/api/notes/updatenotes". Requires auth
-router.put('/updatenotes/:id', fetchUser, async (req, res)=>{
+router.put('/updatenotes/:id', fetchuser, async (req, res)=>{
     try {
     const {title, description, tag} = req.body
     // Create new Note object
@@ -70,7 +70,7 @@ router.put('/updatenotes/:id', fetchUser, async (req, res)=>{
 })
 
 // ROUTE 4: Deleting notes using: DELETE "/api/notes/deletenotes". Requires auth
-router.delete('/deletenotes/:id', fetchUser, async (req, res)=>{
+router.delete('/deletenotes/:id', fetchuser, async (req, res)=>{
     try {
         
    

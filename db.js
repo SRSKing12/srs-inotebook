@@ -10,7 +10,7 @@ const connectToMongo = () => {
         useFindAndModify: false
     }).then(() => {
         console.log("Connected to Mongo Successfully !")
-    }).catch((err) => {console.log("Unable to connect to Mongo!")})
+    }).catch((err) => {console.log(err)})
 }
 
 module.exports = connectToMongo;
